@@ -43,11 +43,11 @@ _main:
   [org 0x7c00]  ;bootloader offset
   mov bp, 0x9000 ;stack base
   mov sp, bp
-  call reset_disk_system                       ;reset disk system
-  Find_File file_name, SECOND_STAGE_SEGMENT   ;find seconds.img
+  call reset_disk_system                      ;reset disk system
+  Find_File file_name, SECOND_STAGE_SEGMENT   ;find scstage.bin
   Read_FAT  FAT_SEGMENT                       ;load FAT table in memory
-  Read_File SECOND_STAGE_SEGMENT, FAT_SEGMENT ;read seconds.img file
-  jmp start_second_stage                      ;exectue seconds.img
+  Read_File SECOND_STAGE_SEGMENT, FAT_SEGMENT ;read scstage.bin file
+  jmp start_second_stage                      ;exectue scstage.bin
 
 boot_failiure:
   mov bx, DISK_ERROR_MSG ;show error msg
