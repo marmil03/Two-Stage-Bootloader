@@ -76,4 +76,4 @@ FAT_SEGMENT        equ 0x0ee0
 
 root_strt          db 0,0 ;offset of root directory
 root_scts          db 0,0 ;sectors in root directory
-file_strt          db 0,0 ;offset of bootloader
+file_strt          db 0,0 ;offset of file
