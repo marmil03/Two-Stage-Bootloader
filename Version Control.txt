@@ -1,0 +1,36 @@
+Version control:
+[16-bit real mode] - following versions of code for boot sector were made in early learning phase (learning assembly x86_64 and os concepts alike)
+
+10.02.2021.  ver 0.001a - simple infinity loop, assigning magic number(0x55aa) and filling 510 of 512 bytes with zeros
+10.02.2021.  ver 0.001b - added printing message character by character on screen using BIOS interrupt(0x10)
+14.02.2021.  ver 0.001c - added specific seperate procedur for printing messages on screen using BIOS interrupt
+14.02.2021.  ver 0.001d - updated main boot sector code to print messages using external procedure
+18.02.2021.  ver 0.002a - added procedure for reading and printing hexadecimals, used for debugging purposes
+18.02.2021.  ver 0.002b - updated main code in order to test new procedure, swapped old messages for relevant ones
+18.02.2021.  ver 0.002c - updated print message procedure, added printing new line
+18.02.2021.  ver 0.003a - added procedure for reading from disk drive
+18.02.2021.  ver 0.003b - updated main code to reflect added procedure and added test code(for testing previouse procedure)
+
+[32-bit protected mode] - after learning basic concepts of boot sector and assembly programming it is time to switch to protected mode
+06.03.2021.  ver 0.01a  - Added files for switch to protected mode, GDT mode (todo: A20Line,fix printing in pm)
+07.03.2021.  ver 0.01b  - fixed printing error
+07.03.2021.  ver 0.01c  - altered print function in 32-bit mode so it doesn't overwrite previous message
+11.03.2021.  ver 0.02a  - Added A20 line checking and activation! Updated main file and done minor fix in printing. Boot sector is 36 bytes to large, needs optimization.
+11.03.2021.  ver 0.02b  - Optimized code to fit inside 512 byte limit
+12.03.2021.  ver 0.03   - I made a decision to move to two stage bootloader system due to lack of space to do everything i wanted in first stage. 
+			  Added OEM/BIOS description block,file system description, looking for a file (second stage) in root directory and loading second stage of bootloader. 
+			  Second stage looks a lot like first main(boot_sector_main.asm from earlier versions) file of bootloader. 
+			  Due to size of this update to bootloader some errors were expected, mainly, file of second stage is not found(suspected segment assigment error or possible file name reading error), 
+			  after fixing these, intention is to enable paging, add IDT and finaly proceede to loading Kernel. 
+13.03.2021.  ver 0.04   - Fixed file reading error(few lines of code were missing in read_file macro and wrong label was called, fixed file name(it was more than 11 bytes)), 
+			  updated second_stage_main.asm and prepared for loading kernel.
+			  Added comments to 90% of the code.
+			  I decided to switch to GRUB for main OS project.
+			  This marks the end of bootloader saga.(For now; i'll probably come back to it later).
+
+[64-bit long mode] 	- for now, there is no intetion of switching to 64-bit mode, but i want to leave this option open if i decide to make 64-bit OS in the future and after i become better and understand more of OS concepts
+
+********************************************************
+Notes for future.
+Missing things: Paging, IDT, finall kernel jump, Makefile(!)
+I used FAT16 file system. Useful info can be found at this site: http://www.maverick-os.dk/FileSystemFormats/FAT16_FileSystem.html
