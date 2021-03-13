@@ -35,7 +35,7 @@ reset_disk_system:
   mov dl, Drive_Number  ;drive to reset
   xor ax, ax            ;subfunction 0
   int 0x13              ;BIOS interrupt
-  jc reset_disk_system      ;display error if carry flag is set
+  jc boot_failiure      ;display error if carry flag is set
   ret
 
 [bits 16]
