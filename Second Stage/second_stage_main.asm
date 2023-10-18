@@ -58,12 +58,14 @@ boot_failiure:
   %include "GDT/GDT.asm"
   %include "GDT/switch_to_protected_mode.asm"
   %include "GDT/print_message_pm.asm"
+  %include "jump_to_kernel.asm"
 
 [bits 32]
 BEGIN_PM:
   mov esi, MSG_PROTECTED_MODE
   call message_print
 ;jump to kernel:
+  JumpToKernel
   jmp $
 
 file_name          db  'KERNEL  BIN'
