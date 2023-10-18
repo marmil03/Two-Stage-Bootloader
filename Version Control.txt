@@ -32,5 +32,5 @@ Version control:
 
 ********************************************************
 Notes for future.
-Missing things: Paging, IDT, finall kernel jump, Makefile(!)
+Missing things: Paging, IDT, Makefile(!)
 I used FAT16 file system. Useful info can be found at this site: http://www.maverick-os.dk/FileSystemFormats/FAT16_FileSystem.html
