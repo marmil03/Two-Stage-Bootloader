@@ -1,0 +1,6 @@
+%macro JumpToKernel 0
+	db 0x66
+	db 0xEA
+	dd 0x20000
+	dw 0x0008
+%endmacro
