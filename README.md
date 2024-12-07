@@ -1,5 +1,6 @@
 # Two-Stage Bootloader
-Two stage bootloader that can jump to x86 kernel. First stage contains initial setup and is used only for jumping to second stage. \
+Two stage bootloader that can jump to an x86 kernel. \
+First stage contains initial setup and is used only for jumping to second stage. \
 Second stage contains all other initialization neccessary to enable a long jump to x86 kernel. \
 Some operations performed in second stage are: \
 enabling A20 line, seting up Global Descriptor Table (GDT), enabling protected mode and final jump to the kernel \
